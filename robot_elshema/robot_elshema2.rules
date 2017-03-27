@@ -1,0 +1,103 @@
+
+(rules PCB robot_elshema2
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1735)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.1)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.9)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_600:400_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_600:400_um" "Via[0-1]_600:400_um" default
+  )
+  (via 
+    "Via[0-1]_600:400_um-kicad_default" "Via[0-1]_600:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_600:400_um-GND" "Via[0-1]_600:400_um" GND
+  )
+  (via_rule
+    default "Via[0-1]_600:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_600:400_um-kicad_default"
+  )
+  (via_rule
+    GND "Via[0-1]_600:400_um-GND"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND /AR3.3 "Net-(BT1-Pad10)" "Net-(BT1-Pad9)" "Net-(BT1-Pad5)" "Net-(BT1-Pad6)" "Net-(BT1-Pad8)" "Net-(BT1-Pad7)"
+    "Net-(BT1-Pad3)" "Net-(BT1-Pad4)" "Net-(BT1-Pad2)" /BTRX /BTTX "Net-(BT1-Pad15)" "Net-(BT1-Pad16)" "Net-(BT1-Pad17)"
+    "Net-(BT1-Pad18)" "Net-(BT1-Pad19)" "Net-(BT1-Pad20)" "Net-(BT1-Pad21)" "Net-(BT1-Pad22)" "Net-(BT1-Pad23)" "Net-(BT1-Pad24)" "Net-(BT1-Pad35)"
+    "Net-(BT1-Pad34)" "Net-(BT1-Pad33)" "Net-(BT1-Pad32)" "Net-(BT1-Pad31)" "Net-(BT1-Pad30)" "Net-(C1-Pad1)" "Net-(C1-Pad2)" "Net-(C3-Pad1)"
+    "Net-(C3-Pad2)" "Net-(D1-Pad1)" "Net-(D2-Pad1)" /ML1 /ML2 /MD1 /MD2 /ENCLA
+    /ENCLB /ENCDA /ENCDB /SC5 /SC7 /MUX /SC8 /SC6
+    /MUXC /MUXB /MUXA /SC4 /SC1 /SC2 /SC3 "Net-(Q1-Pad2)"
+    "Net-(Q1-Pad1)" "Net-(Q2-Pad1)" "Net-(R1-Pad2)" /SCON "Net-(R7-Pad2)" "Net-(R14-Pad1)" /BUT /VBAT
+    "Net-(SC1-Pad2)" "Net-(SC2-Pad2)" "Net-(SC3-Pad2)" "Net-(SC5-Pad2)" "Net-(SC6-Pad2)" "Net-(SC7-Pad2)" "Net-(U1-PadSCK)" "Net-(U1-PadMI)"
+    "Net-(U1-PadRST)" "Net-(U1-PadNC)" "Net-(U1-PadAREF)" "Net-(U1-Pad13)" "Net-(U1-PadMO)" "Net-(U1-PadSS)" /ARRX /ARTX
+    "Net-(U1-Pad11)" "Net-(U1-Pad12)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class GND
+    +9VA +5V +9V
+    (clearance_class GND)
+    (via_rule GND)
+    (rule
+      (width 1000.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
